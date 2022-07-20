@@ -1,0 +1,62 @@
+@keyframes subeta {
+    20%{border-color: #000000;}
+    40%{border-color: blue;}
+    60%{border-color: #150050;}
+    80%{border-color: #3f0071;}
+    90%{border-color: #610094;}
+    100%{border-color: #000000;}
+    
+}
+
+.section{
+    background: white;
+    border-radius: 1rem;
+    margin-top: -10rem;
+    padding: 70px 60px;
+    max-width: 700px;
+    margin-left: 400px;
+    border:solid;
+    animation: subeta 7s infinite;
+
+
+}
+.inst{
+      background-color: white;
+      font-size: 30px;
+      padding-bottom: 15px;
+    padding-left: 50px;
+}
+.title{
+ background-color: white;
+ border-radius: 1rem;
+ display: inline;
+
+ margin-bottom: 10px;
+ border-color: blueviolet;
+ color: black;
+ margin-left: 230px;
+}
+.description{
+    background-color: white;
+    border-radius: 1rem;
+    width: 326px;
+    height: 212px;
+    border-color: blueviolet;
+    color: black;
+    margin-left: 150px;
+    display:flex;
+}
+.btn{
+    background-color: blueviolet;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-left: 280px;
+    margin-top: 10px;
+
+}
+.btn:hover{
+    transition: 0.5s;
+    background-color: black;
+    color: blueviolet;
+}
