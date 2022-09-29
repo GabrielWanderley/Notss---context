@@ -1,10 +1,47 @@
-.container {
-
-   max-width: 700px;
-   border-radius: 1rem;
-   border-color: blueviolet;
-   border: solid;
-   color: blueviolet;
-   margin-left: 400px;
-   background-color:white; 
+.teste{
+   width: 100vw;
+  display: flex;
+ justify-content: center;
+   align-items: center;
+   background-color: black;
+   
 }
+
+.container {
+   border: solid 3px rgb(255, 215, 0);
+   background-color: white;
+   border-radius: 5%;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   padding: 40px 60px;
+   display: block;
+   word-break: break-all;
+   width: 700px;
+  
+
+}
+
+.titu{
+   text-decoration: underline;
+   background-color: white;
+   display: flex;
+
+}
+.buttonn{
+   cursor: pointer;
+   border: none;
+
+}
+.image{
+   transition: 2s;
+}
+
+  /* max-width: 820px;
+   border-radius: 1rem;
+   border-color: rgb(255, 215, 0);
+   border: solid;
+   color: white;
+   margin-left: 537px;
+   background-color:white; 
+   display: flex;
+   justify-content: center;*/

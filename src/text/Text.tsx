@@ -1,41 +1,36 @@
 
-import  { useState} from "react"
+import { useState, useContext, FormEvent} from "react"
 
+import { CustomerContext } from '../context/customer'
 
 import "./styleText.css"
-interface notas{
-    id:number,
-    titulo:string,
-    descrisao:string,
-
+interface nota{
+    id:number;
+    titu:string;
+    desc:string;
 }
 
 export function Text(){
-
- const [notas, setNotas] = useState<notas[]>([])
-
+    const {CreateNotss} = useContext(CustomerContext)
  const [titu, setTitu]= useState("")
  const [desc, setDesc]= useState("")
 
-function btnNovaNotss(){
-    if (!setDesc)return
-    const criarNovaNotss ={
-        id: Math.random(),
-        titulo: titu,
-        descrisao:desc,
-        
-    }
-    setNotas(oldState=>[...oldState, criarNovaNotss])
-    setTitu("")
-    setDesc("")
-    console.log(criarNovaNotss)
- 
+
+ const Create = (event : FormEvent) => {
+    event.preventDefault()
+    CreateNotss({
+        titu, desc, 
+        id : Math.random()
+     })
+     setTitu("")
+     setDesc("")
 }
 
 return (
+  <div className="teste">
     <div className="section">
         <p className="inst">Adicione o titulo e a descrição de sua anotação</p>
-       
+    <form onSubmit={Create} className="form">
        <input type="text" placeholder="Titulo" className="title" 
        onChange={(e) => setTitu(e.target.value)}
        value={titu}/>
@@ -45,9 +40,11 @@ return (
        value={desc}></textarea>
        
        <button className="btn" type="submit"
-       onClick={btnNovaNotss}
+       onClick={()=>Create}
        >enviar</button>
+    </form>   
     </div>
+ </div>
     
     )
 }

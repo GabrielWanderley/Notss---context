@@ -1,12 +1,39 @@
 import "./styleNotss.css"
+import {useContext}from "react"
+import Lixeira from "../images/Lixeira.png"
+
+import {CustomerContext}from "../context/customer"
+
 
 export function Notss (){
-    return(
+ 
+ const { Notss }= useContext(CustomerContext)
+ const {removeNotss} = useContext(CustomerContext)
+function deleteNot(NotssId: number){
 
-<div className="container">
-   
-  <p>aqui vai ficar as notss</p>
+  removeNotss(NotssId)
+}
 
-</div>
+return(
+  <tbody>
+{Notss.map(Nota=>{
+
+  return(
+  <div className="teste">
+    <tr className="container" key={Nota.id}>
+       
+      <td className="titu"><h2>{Nota.titu}</h2></td>
+      <br></br>
+     
+      <td className="desc"><p>{Nota.desc}</p></td>
+    
+      <br></br>
+      <td className="cont"><button className="buttonn" onClick={()=> deleteNot(Nota.id)}><img className="image" src={Lixeira}/></button></td>
+    </tr>
+  </div>
+    )
+    
+})}
+</tbody>
 )
 }
