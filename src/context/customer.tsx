@@ -1,55 +1,42 @@
-import {useState, createContext, ReactNode} from "react";
+import { useState, createContext, ReactNode, Dispatch, SetStateAction } from "react";
 
-interface CustomerProviderProps{
+interface CustomerProviderProps {
   children: ReactNode;
 }
 
 interface nota {
-  id:number;
+  id: number;
   desc: string;
   titu: string;
-  
-
-}
-interface notssContextData{
-  
-  
-  Notss: nota[],
-
-  CreateNotss:({desc, titu}: nota) =>void
-  removeNotss:(NotssId: number) => void
 }
 
-export const CustomerContext = createContext ({} as notssContextData)
+interface notssContextData {
+  Notss: nota[];
+  CreateNotss: (Nota: nota) => void;
+  removeNotss: (NotssId: number) => void;
+  setNotss: Dispatch<SetStateAction<nota[]>>; // Adicionando a propriedade setNotss
+}
 
- function CustomerProvider ({children}: CustomerProviderProps) {
+export const CustomerContext = createContext({} as notssContextData);
 
-  const [Notss, setNotss] = useState<nota[]>([])
-  
-    function CreateNotss (Nota:nota){
+function CustomerProvider({ children }: CustomerProviderProps) {
+  const [Notss, setNotss] = useState<nota[]>([]);
 
-
-      setNotss([
-        ...Notss,
-        Nota
-    ])
-   
+  function CreateNotss(Nota: nota) {
+    setNotss([...Notss, Nota]);
   }
-  function removeNotss (NotssId:number)  {
-    const updatedNotss = [ ...Notss]
-    const filtered = updatedNotss.filter((todo) => todo.id !== NotssId)
-    console.log(NotssId)
-   
-        setNotss(filtered)
-   }
-  
-    return(
-        <CustomerContext.Provider value={{ CreateNotss, Notss , removeNotss}}>
-                {children} 
-        </CustomerContext.Provider>
-    )
+
+  function removeNotss(NotssId: number) {
+    const updatedNotss = [...Notss];
+    const filtered = updatedNotss.filter((todo) => todo.id !== NotssId);
+    setNotss(filtered);
+  }
+
+  return (
+    <CustomerContext.Provider value={{ CreateNotss, Notss, removeNotss, setNotss }}>
+      {children}
+    </CustomerContext.Provider>
+  );
 }
 
-
-export default CustomerProvider
-
+export default CustomerProvider;

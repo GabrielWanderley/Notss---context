@@ -1,12 +1,4 @@
-@keyframes subeta {
-    20%{border-color: #ff0000;}
-    40%{border-color: blue;}
-    60%{border-color: #ff00e1;}
-    80%{border-color: #8c00ff;}
-    90%{border-color: #f6ff00;}
-    100%{border-color: #00ff37;}
-    
-}
+
 
 .teste{
 
@@ -30,8 +22,8 @@
     display: flex;
     justify-content: center;
 
-    border:solid;
-    animation: subeta 7s infinite;
+    border:solid 3px black
+ 
 
 
 }
@@ -54,8 +46,10 @@
 .description{
     background-color: white;
     border-radius: 1rem;
-    width: 326px;
-    height: 212px;
+    min-width: 326px;
+    min-height: 212px;
+    max-width: 326px;
+    max-height: 212px;
     border-color: rgb(255, 215, 0);
     color: black;
     margin-left: 150px;
